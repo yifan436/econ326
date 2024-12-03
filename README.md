@@ -23,12 +23,36 @@ merged_data <- census_data_culture %>%
   )
 ```
 
-```{r}
-merged_data <- merged_data %>%
-  drop_na(v_CA21_906..Median.total.income.of.household.in.2020...., 
-          art_within_500, 
-          stops_contained, 
-          Population)
+```{r pressure, echo=FALSE}
+census_data_culture %>%
+  summarise(variable = "Income",
+    max = max(v_CA21_906..Median.total.income.of.household.in.2020...., na.rm = TRUE),
+    min = min(v_CA21_906..Median.total.income.of.household.in.2020...., na.rm = TRUE),
+    mean = mean(v_CA21_906..Median.total.income.of.household.in.2020...., na.rm = TRUE),
+    sd = sd(v_CA21_906..Median.total.income.of.household.in.2020...., na.rm = TRUE)
+  )
+census_data_art %>%
+  summarise(variable = "distance",
+    max = max(art_within_500, na.rm = TRUE),
+    min = min(art_within_500, na.rm = TRUE),
+    mean = mean(art_within_500, na.rm = TRUE),
+    sd = sd(art_within_500, na.rm = TRUE)
+  )
+census_data_stops %>%
+  summarise(variable = "stops",
+    max = max(stops_contained),
+    min = min(stops_contained),
+    mean = mean(stops_contained),
+    sd = sd(stops_contained)
+  )
+
+census_data_culture %>%
+  summarise(variable = "population",
+    max = max(Population, na.rm = TRUE),
+    min = min(Population, na.rm = TRUE),
+    mean = mean(Population, na.rm = TRUE),
+    sd = sd(Population, na.rm = TRUE)
+  )
 ```
 
 ```{r}
