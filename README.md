@@ -6,11 +6,12 @@ library(knitr)
 library(dplyr)
 library(haven)
 ```
+```{r}
 setwd(">_<")
 load("data_transit.rda")
 load("data_culture.rda")
 load("data_art.rda")
-```{r}
+
 str(census_data_culture)
 str(census_data_art)
 str(census_data_stops)
